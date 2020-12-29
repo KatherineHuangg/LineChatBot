@@ -19,24 +19,26 @@ qrcode功能目前僅提供大三的必修課表，因此若不在此範圍內�
 
 ### 使用教學
 1. download exampleCode
-[我是範例](https://github.com/GoneToneStudio/line-example-bot-tiny-php?fbclid=IwAR1FrTmbGHcsz9UTYkJBs9DSNWqYVvzrm_i3I0QyZY1ilEffeMhIMD9dhZg)
+
+   [我是範例](https://github.com/GoneToneStudio/line-example-bot-tiny-php?fbclid=IwAR1FrTmbGHcsz9UTYkJBs9DSNWqYVvzrm_i3I0QyZY1ilEffeMhIMD9dhZg)
 
 2. download XAMPP
-[點我下載](https://www.apachefriends.org/zh_tw/download.html)
+
+   [點我下載](https://www.apachefriends.org/zh_tw/download.html)
 3. install ngrok
-```bash=
-sudo snap install ngrok
-```
+   ```bash=
+   sudo snap install ngrok
+   ```
 
 4. 在**config.ini**修改自己的Channel access Token和Channel Secret
-```bash=1
-[Channel]
-; 請在雙引號內輸入您的 Line Bot "Channel access token"
-Token = "(你的token)"
+   ```bash=1
+   [Channel]
+   ; 請在雙引號內輸入您的 Line Bot "Channel access token"
+   Token = "(你的token)"
 
-; 請在雙引號內輸入您的 Line Bot "Channel secret"
-Secret = "(你的secret)"
-```
+   ; 請在雙引號內輸入您的 Line Bot "Channel secret"
+   Secret = "(你的secret)"
+   ```
 
 5. open XAMPP Control Panel
     * 將這兩項的Actions打開
@@ -72,14 +74,14 @@ Secret = "(你的secret)"
         * 輸入想聽的音樂類型:
             * 英
             * 韓
+            * 中
         * 就會顯示3首我最近愛聽的歌推薦給你
 
 * 使用示範:
 
-![](https://i.imgur.com/FqARBx5.jpg)
-
-![](https://i.imgur.com/4oLg1W8.jpg)
+![](https://i.imgur.com/0K7YEze.jpg)
+![](https://i.imgur.com/6daWKH1.jpg)
 
 
 * FSM
-![](https://i.imgur.com/P8gxibl.png)
+![](https://i.imgur.com/pla1bha.png)

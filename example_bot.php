@@ -1,8 +1,4 @@
 <?php
-$connect = new PDO('mysql:host=localhost;dbname=line;charset=utf8mb4', 'yuting', '123456');
-$sth = $connect->prepare('SELECT line_state FROM line_state WHERE line_id = 1');
-$sth->execute();
-$row = $sth->fetch();
 /**
  * Copyright 2020 GoneTone
  *
@@ -15,7 +11,7 @@ $row = $sth->fetch();
 date_default_timezone_set("Asia/Taipei"); //設定時區為台北時區
 
 require_once('LINEBotTiny.php');
-$money = 20;
+
 $channelAccessToken = '';
 $channelSecret = '';
 if (file_exists(__DIR__ . '/config.ini')) {
@@ -47,52 +43,49 @@ Secret = ""
     fclose($configFile); //關閉文件
     error_log("config.ini 配置檔建立成功，請編輯檔案填入資料！", 0); //輸出錯誤
 }
-$money = 0;
-global $income;
-global $expense;
-$income = 100;
-$expense = 20;
+
 $message = null;
 $event = null;
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
-            switch($row[0]){
-                case 'close':
-                    require_once('data/close.php');
-                    break; 
-                case 'start':
-                    require_once('data/start.php');
-                    break;  
-                case 'qrcode':
-                    require_once('data/qrcode.php');
-                    break;  
-                case 'music':
-                    require_once('data/music.php');
-                    break;  
-                case 'check':
-                    require_once('data/check.php');
+            switch ($message['type']) {
+                case 'text':
+                    require_once('includes/data.php');
+                    // require_once('includes/text.php'); //Type: Text
+                    // require_once('includes/image.php'); //Type: Image
+                    // require_once('includes/video.php'); //Type: Video
+                    // require_once('includes/audio.php'); //Type: Audio
+                    // require_once('includes/location.php'); //Type: Location
+                    // require_once('includes/sticker.php'); //Type: Sticker
+                    // require_once('includes/imagemap.php'); //Type: Imagemap
+                    // require_once('includes/template.php'); //Type: Template
                     break;
-                /*case 'list':
-                    require_once('data/list.php');
-                case 'search':
-                    require_once('data/food.php');
-                    require_once('data/goback_check.php');
+                default:
+                    //error_log("Unsupporeted message type: " . $message['type']);
                     break;
-                case 'goback':
-                    require_once('data/goback.php');
-                    break;*/
-
             }
             break;
         case 'postback':
             //require_once('postback.php'); //postback
             break;
-        case 'follow': //加為好友觸發
+//         case 'follow': //加為好友觸發
+//             $client->replyMessage(array(
+//                 'replyToken' => $event['replyToken'],
+//                 'messages' => array(
+//                     array(
+//                         'type' => 'text',
+//                         'text' => '您好，這是一個範例 Bot OuO
 
-            break;
+// 範例程式開源至 GitHub (包含教學)：
+// https://github.com/GoneTone/line-example-bot-php'
+//                     )
+//                 )
+//             ));
+//             break;
         case 'join': //加入群組觸發
             $client->replyMessage(array(
                 'replyToken' => $event['replyToken'],
