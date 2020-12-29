@@ -681,6 +681,95 @@ elseif (strtolower($message['text']) == "中") {
     $sth->execute();
 }
 
+elseif (strtolower($message['text']) == "日") {
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                "type" => "flex",
+                "altText" => "helo",
+                "contents" => array(
+                    "type" => "carousel",
+                    "contents" => array(
+                        array(
+                            "type" => "bubble",
+                            "size" => "micro",
+                            "hero" => array(
+                                "type" => "image",
+                                "url" => "https://i.imgur.com/ED7lN2b.png",
+                                "size" => "full",
+                                "aspectMode" => "cover",
+                                "aspectRatio" => "320:213"
+                            ),
+                            "body" => array(
+                                "type" => "box",
+                                "layout" => "vertical",
+                                "contents" => array(
+                                    array(
+                                        "type" => "text",
+                                        "text" => "7%",
+                                        "weight" => "bold",
+                                        "size" => "sm",
+                                        "wrap" => true
+                                    ),
+                                    array(
+                                        "type" => "box",
+                                        "layout" => "vertical",
+                                        "contents" => array(
+                                            array(
+                                                "type" => "box",
+                                                "layout" => "baseline",
+                                                "spacing" => "sm",
+                                                "contents" => array(
+                                                    array(
+                                                        "type" => "text",
+                                                        "text" => "XMASwu",
+                                                        "wrap" => true,
+                                                        "color" => "#8c8c8c",
+                                                        "size" => "xs",
+                                                        "flex" => 5
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                "spacing" => "sm",
+                                "paddingAll" => "13px"
+                            ),
+                            "footer" => array(
+                                "type" => "box",
+                                "layout" => "vertical",
+                                "spacing" => "sm",
+                                "contents" => array(
+                                    array(
+                                        "type" => "button",
+                                        "style" => "link",
+                                        "height" => "sm",
+                                        "action" => array(
+                                            "type" => "uri",
+                                            "label" => "WEBSITE",
+                                            "uri" => "https://youtu.be/DTyJMlzp_yo"
+                                        )
+                                    ),
+                                    array(
+                                        "type" => "spacer",
+                                        "size" => "sm"
+                                    )
+                                ),
+                                "flex" => 0
+                            )
+                        )
+                    )
+                )
+            )
+            
+        )
+    ));
+    $sth = $connect->prepare('UPDATE line_state SET line_state = :hp WHERE line_id = 1');
+    $sth->bindValue(':hp','music');
+    $sth->execute();
+}
 elseif (strtolower($message['text']) == "goback") {
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
