@@ -75,9 +75,8 @@ Secret = "(你的secret)"
         * 就會顯示3首我最近愛聽的歌推薦給你
 
 * 使用示範:
-![](https://i.imgur.com/fRSdXzQ.jpg)
-![](https://i.imgur.com/EExl2ia.jpg)
-![](https://i.imgur.com/zGPlZMo.jpg)
+![](https://i.imgur.com/FqARBx5.jpg)
+![](https://i.imgur.com/4oLg1W8.jpg)
 
 
 * FSM
