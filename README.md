@@ -81,4 +81,4 @@ Secret = "(你的secret)"
 
 
 * FSM
-![](https://i.imgur.com/GNqVYbp.png)
+![](https://i.imgur.com/P8gxibl.png)
